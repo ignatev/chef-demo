@@ -1,0 +1,6 @@
+.gcp-creds
+gcp-key
+gcp-key.pub
+.terraform
+ignatev.pem
+terraform.tfstate*
