@@ -4,3 +4,5 @@ gcp-key.pub
 .terraform
 ignatev.pem
 terraform.tfstate*
+.delivery
+syntaxcache
