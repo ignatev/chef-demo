@@ -6,4 +6,4 @@ log_location             STDOUT
 node_name                "ignatev"
 client_key               "#{current_dir}/ignatev.pem"
 chef_server_url          "https://api.chef.io/organizations/chef_demo-org"
-cookbook_path            ["#{current_dir}/../cookbooks"]
+cookbook_path            ["#{current_dir}/cookbooks"]
