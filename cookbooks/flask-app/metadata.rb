@@ -18,8 +18,10 @@ chef_version '>= 12.14' if respond_to?(:chef_version)
 # a Supermarket.
 #
 # source_url 'https://github.com/<insert_org_here>/petclinic'
-name "petclinic"
-description "Chef demo cookbook for java app and db install"
+name "flask-app"
+description "Chef demo cookbook for flask app and db install"
 
-depends 'java', '~> 2.2.0'
 depends 'mysql', '~> 8.5'
+depends 'docker'
+depends 'mysql2_chef_gem', '~> 2.1'
+depends 'database', '~> 6.1'

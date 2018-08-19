@@ -6,3 +6,5 @@ ignatev.pem
 terraform.tfstate*
 .delivery
 syntaxcache
+mysql
+docker
