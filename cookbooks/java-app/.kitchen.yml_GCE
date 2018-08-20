@@ -1,0 +1,43 @@
+---
+driver:
+  name: gce
+  project: eternal-ship-213716
+  zone: us-central1-b
+  tags:
+    - devteam
+    - test-kitchen
+  service_account_scopes:
+    - devstorage.read_write
+    - userinfo.email
+
+transport:
+  ssh_key:
+    - gcp-key
+  username: 'chef-demo'
+
+provisioner:
+  name: chef_zero
+  always_update_cookbooks: true
+
+verifier:
+  name: inspec
+
+platforms:
+  - name: ubuntu-16.04
+    driver:
+      image_project: ubuntu-os-cloud
+      image_family: ubuntu-1604-lts
+      metadata:
+        application: ubuntu
+        release: a
+        version: 1604
+
+suites:
+  - name: default
+    run_list:
+      - recipe[java-app::app]
+      - recipe[java-app::db]
+    verifier:
+      inspec_tests:
+        - test/integration/default
+    attributes:

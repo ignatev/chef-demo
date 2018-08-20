@@ -5,14 +5,10 @@
 # The Inspec reference, with examples and extensive documentation, can be
 # found at http://inspec.io/docs/reference/resources/
 
-unless os.windows?
-  # This is an example test, replace with your own test.
-  describe user('root'), :skip do
-    it { should exist }
-  end
-end
+describe 'java-app running' do
 
-# This is an example test, replace it with your own test.
-describe port(80), :skip do
-  it { should_not be_listening }
+  it 'should respond to an HTTP request' do
+    expect(command 'curl 35.225.212.140:8080').to return_stdout /.*[{"id":1,"name":"A"},{"id":2,"name":"B"},{"id":3,"name":"C"}].*/
+  end
+
 end

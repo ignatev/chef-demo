@@ -1,9 +1,3 @@
-#
-# Cookbook:: petclinic
-# Recipe:: mysql
-#
-# Copyright:: 2018, The Authors, All Rights Reserved.
-
 if tagged?('db')
   docker_image 'postgres' do
     action :pull

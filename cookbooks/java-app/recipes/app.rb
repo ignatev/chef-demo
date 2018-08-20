@@ -1,22 +1,15 @@
-
-docker_service 'default' do
-  action [:create, :start]
-end
-
 if tagged?('app')
   docker_image 'ignatev/java-app' do
     action :pull
   end
 
   docker_container 'java-app' do
+    dbnodes = search(:node, 'roles:db')
+    dbnode_ip = dbnodes[0]['ipaddress']
+    extra_hosts ["mypostgres:#{dbnode_ip}"]
+
     repo 'ignatev/java-app'
     port '8080:8080'
-    extra_hosts ['mypostgres:10.127.0.2']
   end
 
-end
-
-dbnodes = search(:node, "*:*")
-dbnodes.each do |node|
-  Chef::Log.info("#{node["name"]} has IP address #{node["ipaddress"]}")
 end
