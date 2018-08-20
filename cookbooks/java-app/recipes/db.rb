@@ -9,7 +9,7 @@ if tagged?('db')
     action :pull
   end
 
-  docker_container 'flask-db' do
+  docker_container 'java-app-db' do
     repo 'postgres'
     port '5432:5432'
     env ['POSTGRES_PASSWORD=password', 'POSTGRES_USER=postgres', 'POSTGRES_DB=mydb']
