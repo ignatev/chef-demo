@@ -21,7 +21,5 @@ chef_version '>= 12.14' if respond_to?(:chef_version)
 name "flask-app"
 description "Chef demo cookbook for flask app and db install"
 
-depends 'mysql', '~> 8.5'
+depends 'mysql', '~> 8.5.1'
 depends 'docker'
-depends 'mysql2_chef_gem', '~> 2.1'
-depends 'database', '~> 6.1'

@@ -25,10 +25,12 @@ resource "google_compute_firewall" "default" {
   name    = "chef-demo-firewall"
   network = "${google_compute_network.default.name}"
 
-
+  allow {
+    protocol = "icmp"
+  }
   allow {
     protocol = "tcp"
-    ports    = ["80", "8080", "22"]
+    ports    = ["80", "8080", "22", "5432"]
   }
 
 }
