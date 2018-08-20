@@ -9,5 +9,9 @@ execute "update-upgrade" do
   action :run
 end
 
-include_recipe 'flask-app::db'
-include_recipe 'flask-app::app'
+docker_service 'default' do
+  action [:create, :start]
+end
+
+include_recipe 'java-app::db'
+include_recipe 'java-app::app'
