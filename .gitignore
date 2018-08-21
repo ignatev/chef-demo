@@ -7,5 +7,5 @@ terraform.tfstate*
 .delivery
 syntaxcache
 mysql
-docker
+cookbooks/docker
 .kitchen
