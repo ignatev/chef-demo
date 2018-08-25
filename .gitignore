@@ -7,5 +7,6 @@ terraform.tfstate*
 .delivery
 syntaxcache
 mysql
+*.pub
 cookbooks/docker
 .kitchen
